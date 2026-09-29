@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dev — Full-Stack Developer</title>
+  <meta name="description" content="Full-stack developer crafting Django APIs and React interfaces that feel alive." />
+
+  <!-- Fonts: Syne (display) + Space Grotesk (body) + Space Mono (labels) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230a0a0a'/><text x='50' y='72' font-size='62' font-family='monospace' fill='%23d9f24f' text-anchor='middle'>&lt;/&gt;</text></svg>" />
+</head>
+<body>
+
+  <!-- ══════════════ PRELOADER ══════════════ -->
+  <div id="preloader" aria-hidden="true">
+    <div class="loader-inner">
+      <div id="loader-word" class="loader-word">hello</div>
+      <div class="loader-track"><div id="loader-bar" class="loader-bar"></div></div>
+      <div id="loader-count" class="loader-count">00</div>
+    </div>
+    <div class="loader-panel p1"></div>
+    <div class="loader-panel p2"></div>
+  </div>
+
+  <!-- Custom cursor -->
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"><span id="cursor-label">VIEW</span></div>
+
+  <!-- Scroll progress -->
+  <div id="progress" aria-hidden="true"></div>
+
+  <!-- Film grain -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ══════════════ NAV ══════════════ -->
+  <header id="site-nav">
+    <a class="logo" href="#top" data-hover>
+      <span class="logo-mark">&lt;/&gt;</span>
+      <span class="logo-name">dev<span class="acid">.</span>folio</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about" data-hover class="nav-link">About</a>
+      <a href="#stack" data-hover class="nav-link">Stack</a>
+      <a href="#work" data-hover class="nav-link">Work</a>
+      <a href="#contact" data-hover class="nav-link">Contact</a>
+    </nav>
+    <div class="nav-meta">
+      <span class="clock mono" id="clock">--:--:--</span>
+      <span class="status-dot" title="Open to work"></span>
+    </div>
+    <button id="menu-toggle" data-hover aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Fullscreen menu -->
+  <div id="menu-overlay" aria-hidden="true">
+    <nav class="menu-links" aria-label="Menu">
+      <a href="#about" class="menu-link" data-hover><span class="mono menu-num">01</span><span class="menu-word" data-split>About</span></a>
+      <a href="#stack" class="menu-link" data-hover><span class="mono menu-num">02</span><span class="menu-word" data-split>Stack</span></a>
+      <a href="#work"  class="menu-link" data-hover><span class="mono menu-num">03</span><span class="menu-word" data-split>Work</span></a>
+      <a href="#contact" class="menu-link" data-hover><span class="mono menu-num">04</span><span class="menu-word" data-split>Contact</span></a>
+    </nav>
+    <div class="menu-foot mono">
+      <span>hello@yourname.dev</span>
+      <span>India · Remote friendly</span>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- ══════════════ HERO ══════════════ -->
+    <section class="hero" id="hero">
+      <canvas id="gl" aria-hidden="true"></canvas>
+
+      <div class="hero-inner">
+        <p class="hero-eyebrow mono reveal"> <span class="blink">●</span> Available for work — 2026</p>
+
+        <h1 class="hero-title">
+          <span class="line" data-split>FULL—STACK</span>
+          <span class="line line--outline" data-split>DEVELOPER</span>
+        </h1>
+
+        <div class="hero-sub">
+          <p class="reveal">I'm <strong>Dev</strong> — I build <em>Django&nbsp;APIs</em> and <em>React&nbsp;interfaces</em><br/>that don't just work. They <span class="acid">feel alive</span>.</p>
+          <div class="hero-cta reveal">
+            <a href="#work" class="btn btn--acid magnetic" data-hover><span>See the work</span><span class="btn-arrow">↓</span></a>
+            <a href="#contact" class="btn btn--ghost magnetic" data-hover><span>Get in touch</span></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- rotating badge -->
+      <div class="hero-badge reveal" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+          <defs><path id="circlePath" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+          <text><textPath href="#circlePath">OPEN TO WORK • DJANGO • REACT • SQL •&nbsp;</textPath></text>
+        </svg>
+        <span class="badge-core">↓</span>
+      </div>
+
+      <div class="hero-side mono" aria-hidden="true">PORTFOLIO — EST. 2026</div>
+      <div class="hero-stats reveal">
+        <div class="hstat"><span class="hstat-num" data-count="15">0</span><span class="hstat-label mono">projects shipped</span></div>
+        <div class="hstat"><span class="hstat-num" data-count="3">0</span><span class="hstat-label mono">years deep</span></div>
+        <div class="hstat"><span class="hstat-num" data-count="10">0</span><span class="hstat-label mono">APIs built</span></div>
+        <div class="hstat"><span class="hstat-num" data-count="99">0</span><span class="hstat-label mono">% chai fueled</span></div>
+      </div>
+    </section>
+
+    <!-- ══════════════ MARQUEE ══════════════ -->
+    <div class="marquee marquee--acid" aria-hidden="true">
+      <div class="marquee-track">
+        <span>PYTHON <i>✦</i> DJANGO <i>✦</i> DRF <i>✦</i> REACT <i>✦</i> JAVASCRIPT <i>✦</i> SQL <i>✦</i> SQLITE <i>✦</i> HTML <i>✦</i> CSS <i>✦</i> REST APIs <i>✦</i> GIT <i>✦</i>&nbsp;</span>
+        <span>PYTHON <i>✦</i> DJANGO <i>✦</i> DRF <i>✦</i> REACT <i>✦</i> JAVASCRIPT <i>✦</i> SQL <i>✦</i> SQLITE <i>✦</i> HTML <i>✦</i> CSS <i>✦</i> REST APIs <i>✦</i> GIT <i>✦</i>&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- ══════════════ ABOUT ══════════════ -->
+    <section class="section" id="about">
+      <div class="section-head reveal">
+        <span class="mono sec-num">01</span>
+        <span class="mono sec-label">ABOUT ME</span>
+        <span class="sec-rule"></span>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-copy">
+          <h2 class="about-statement" data-reveal-words>
+            I turn coffee into clean code and ideas into products people <em>love to use.</em>
+          </h2>
+          <p class="reveal">Full-stack developer from India, deep in the <strong>Python / Django / DRF</strong> world on the backend and
+            <strong>React / JavaScript</strong> on the front. I design SQL schemas that don't fall over, APIs that read like good prose,
+            and interfaces with actual personality — no template-y dashboard vibes.</p>
+          <p class="reveal">When I'm not shipping features, I'm refactoring them. Fatal allergy to N+1 queries.</p>
+
+          <ul class="funfacts mono reveal">
+            <li><span>→</span> Django &amp; DRF for anything with an endpoint</li>
+            <li><span>→</span> React hooks over class components, always</li>
+            <li><span>→</span> SQLite for prototypes, SQL for life</li>
+            <li><span>→</span> CSS animations > screenshot mockups</li>
+          </ul>
+        </div>
+
+        <figure class="portrait-wrap reveal" data-tilt>
+          <div class="portrait-frame">
+            <img src="assets/portrait.png" alt="Portrait of Dev, full-stack developer" class="portrait" />
+            <div class="portrait-tape tape-1 mono">HELLO.jpg</div>
+            <div class="portrait-tape tape-2 mono">EST.2026</div>
+          </div>
+          <figcaption class="mono portrait-cap">// the developer, in natural habitat</figcaption>
+        </figure>
+      </div>
+
+      <div class="toolbox reveal">
+        <span class="mono toolbox-label">TOOLBOX /</span>
+        <div class="chips">
+          <span class="chip" data-hover>🐍 Python</span>
+          <span class="chip" data-hover>🎯 Django</span>
+          <span class="chip" data-hover>🔌 DRF</span>
+          <span class="chip" data-hover>⚛️ React</span>
+          <span class="chip" data-hover>🟨 JavaScript</span>
+          <span class="chip" data-hover>🗄️ SQL / SQLite</span>
+          <span class="chip" data-hover>🧱 HTML5</span>
+          <span class="chip" data-hover>🎨 CSS3</span>
+          <span class="chip" data-hover>🔧 Git</span>
+          <span class="chip" data-hover>🚀 REST APIs</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ STACK / SERVICES ══════════════ -->
+    <section class="section" id="stack">
+      <div class="section-head reveal">
+        <span class="mono sec-num">02</span>
+        <span class="mono sec-label">WHAT I DO</span>
+        <span class="sec-rule"></span>
+      </div>
+
+      <h2 class="section-title" data-split>THE STACK</h2>
+
+      <div class="srows">
+        <article class="srow reveal" data-hover>
+          <span class="srow-num mono">01</span>
+          <h3 class="srow-title">Backend Engineering</h3>
+          <p class="srow-desc">Django apps &amp; DRF APIs — auth, permissions, serializers, signals. Boring reliability, exciting speed.</p>
+          <span class="srow-tags mono">Django · DRF · JWT · ORM</span>
+          <span class="srow-arrow">→</span>
+        </article>
+        <article class="srow reveal" data-hover>
+          <span class="srow-num mono">02</span>
+          <h3 class="srow-title">Frontend Interfaces</h3>
+          <p class="srow-desc">React components, motion design, pixel-obsessed CSS. Pages that respond to every move you make.</p>
+          <span class="srow-tags mono">React · JS · HTML · CSS</span>
+          <span class="srow-arrow">→</span>
+        </article>
+        <article class="srow reveal" data-hover>
+          <span class="srow-num mono">03</span>
+          <h3 class="srow-title">Databases &amp; Data</h3>
+          <p class="srow-desc">Schema design, migrations, indexed queries. SQLite when it's enough, SQL when it matters.</p>
+          <span class="srow-tags mono">SQL · SQLite · Modeling</span>
+          <span class="srow-arrow">→</span>
+        </article>
+        <article class="srow reveal" data-hover>
+          <span class="srow-num mono">04</span>
+          <h3 class="srow-title">APIs &amp; Tooling</h3>
+          <p class="srow-desc">REST done right — versioned, documented, tested. Glued together with Git and stubbornness.</p>
+          <span class="srow-tags mono">REST · Postman · Git</span>
+          <span class="srow-arrow">→</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════════ PROJECTS ══════════════ -->
+    <section class="section" id="work">
+      <div class="section-head reveal">
+        <span class="mono sec-num">03</span>
+        <span class="mono sec-label">SELECTED WORK</span>
+        <span class="sec-rule"></span>
+      </div>
+
+      <h2 class="section-title" data-split>PROJECTS</h2>
+
+      <div class="projects">
+        <a href="#" class="pcard reveal tilt" data-hover data-cursor="VIEW">
+          <div class="pcard-media">
+            <img src="https://picsum.photos/seed/ledgerly/1200/800.jpg" alt="Ledgerly finance dashboard" loading="lazy" />
+            <span class="pcard-year mono">2026</span>
+          </div>
+          <div class="pcard-info">
+            <h3>Ledgerly <span class="acid">—</span> Personal Finance API</h3>
+            <p>Django + DRF backend with JWT auth, budget analytics endpoints and a React dashboard that renders charts faster than you can say "ORM".</p>
+            <div class="pcard-tags mono"><span>Django</span><span>DRF</span><span>SQLite</span><span>React</span></div>
+          </div>
+        </a>
+
+        <a href="#" class="pcard pcard--flip reveal tilt" data-hover data-cursor="VIEW">
+          <div class="pcard-media">
+            <img src="https://picsum.photos/seed/shopfront/1200/800.jpg" alt="ShopFront storefront" loading="lazy" />
+            <span class="pcard-year mono">2025</span>
+          </div>
+          <div class="pcard-info">
+            <h3>ShopFront <span class="acid">—</span> React Storefront</h3>
+            <p>Headless commerce UI: cart state without tears, skeleton loading everywhere, and a checkout flow wired to a DRF order API.</p>
+            <div class="pcard-tags mono"><span>React</span><span>DRF</span><span>CSS Grid</span></div>
+          </div>
+        </a>
+
+        <a href="#" class="pcard reveal tilt" data-hover data-cursor="VIEW">
+          <div class="pcard-media">
+            <img src="https://picsum.photos/seed/pulsedash/1200/800.jpg" alt="Pulse analytics dashboard" loading="lazy" />
+            <span class="pcard-year mono">2025</span>
+          </div>
+          <div class="pcard-info">
+            <h3>Pulse <span class="acid">—</span> Analytics Dashboard</h3>
+            <p>SQL aggregation queries feeding a live React dashboard. Dark mode first, because obviously.</p>
+            <div class="pcard-tags mono"><span>SQL</span><span>Django</span><span>React</span></div>
+          </div>
+        </a>
+      </div>
+
+      <div class="mini-projects reveal">
+        <a href="#" class="mrow" data-hover>
+          <span class="mono mrow-year">2024</span>
+          <span class="mrow-name">TaskFlow API</span>
+          <span class="mono mrow-stack">DRF · SQLite</span>
+          <span class="mrow-arrow">↗</span>
+        </a>
+        <a href="#" class="mrow" data-hover>
+          <span class="mono mrow-year">2024</span>
+          <span class="mrow-name">Blogfolio CMS</span>
+          <span class="mono mrow-stack">Django · React</span>
+          <span class="mrow-arrow">↗</span>
+        </a>
+        <a href="#" class="mrow" data-hover>
+          <span class="mono mrow-year">2023</span>
+          <span class="mrow-name">QuizStorm</span>
+          <span class="mono mrow-stack">JS · CSS Animations</span>
+          <span class="mrow-arrow">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ══════════════ JOURNEY ══════════════ -->
+    <section class="section" id="journey">
+      <div class="section-head reveal">
+        <span class="mono sec-num">04</span>
+        <span class="mono sec-label">THE JOURNEY</span>
+        <span class="sec-rule"></span>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <span class="mono tl-year">2026 — NOW</span>
+          <h3>Full-Stack Developer · Freelance</h3>
+          <p>Shipping Django/DRF backends and React frontends for clients. Owning features end to end, from schema to stylesheet.</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <span class="mono tl-year">2025</span>
+          <h3>Backend Intern</h3>
+          <p>Built REST endpoints, wrote migrations, learned that code reviews are free mentorship. Broke staging once, only once.</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <span class="mono tl-year">2024</span>
+          <h3>The React Rabbit Hole</h3>
+          <p>Fell for component thinking, hooks and CSS motion. Started rebuilding everything twice: once fast, once beautiful.</p>
+        </div>
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <span class="mono tl-year">2023</span>
+          <h3>Hello, Python</h3>
+          <p>First script, first SQLite table, first bug at 2 AM. Never recovered. Never wanted to.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ CONTACT ══════════════ -->
+    <section class="section section--contact" id="contact">
+      <div class="section-head reveal">
+        <span class="mono sec-num">05</span>
+        <span class="mono sec-label">SAY HELLO</span>
+        <span class="sec-rule"></span>
+      </div>
+
+      <h2 class="contact-title" data-split>GOT AN IDEA?</h2>
+      <a class="contact-mail magnetic" href="mailto:hello@yourname.dev" data-hover>
+        <span class="mono contact-kicker">// click to copy —</span>
+        <span class="contact-addr">hello@yourname.dev</span>
+      </a>
+
+      <div class="contact-grid">
+        <form id="contact-form" class="cform reveal" novalidate>
+          <div class="field">
+            <input type="text" id="f-name" placeholder=" " required />
+            <label for="f-name">Your name</label>
+          </div>
+          <div class="field">
+            <input type="email" id="f-email" placeholder=" " required />
+            <label for="f-email">Your email</label>
+          </div>
+          <div class="field">
+            <textarea id="f-msg" rows="4" placeholder=" " required></textarea>
+            <label for="f-msg">Tell me everything</label>
+          </div>
+          <button type="submit" class="btn btn--acid magnetic" data-hover><span>Send it 🚀</span><span class="btn-arrow">→</span></button>
+          <p id="form-note" class="mono form-note" hidden>wire this form to your DRF endpoint 🐍</p>
+        </form>
+
+        <div class="socials reveal">
+          <span class="mono socials-label">ELSEWHERE /</span>
+          <a href="https://github.com" target="_blank" rel="noopener" class="social-link" data-hover>GitHub <span>↗</span></a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link" data-hover>LinkedIn <span>↗</span></a>
+          <a href="https://twitter.com" target="_blank" rel="noopener" class="social-link" data-hover>Twitter / X <span>↗</span></a>
+          <a href="#" class="social-link" data-hover data-download>Download CV <span>↓</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="footer">
+    <div class="footer-giant" aria-hidden="true" data-split>DEV.DEV</div>
+    <div class="footer-bar mono">
+      <span>© <span id="year">2026</span> — built with Three.js &amp; too much chai</span>
+      <span class="acid">Django × React × Everything between</span>
+      <a href="#top" class="to-top" data-hover>BACK TO TOP ↑</a>
+    </div>
+  </footer>
+
+  <!-- Three.js (global build) then our scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="scene.js" defer></script>
+  <script src="main.js" defer></script>
+</body>
+</html>
